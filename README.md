@@ -1,4 +1,5 @@
 
+
 # Thalia Salguero
 ---
 
@@ -18,9 +19,9 @@ ability to work independently and as part of a team, to work in a dynamic and ch
 - [ ] Search Engine Optimization (SEO)
 - [ ] Data analysis
 - [ ] Markup Language
+- [ ] Professional Customer Service 
 
-
-Professional Customer Service | Managing Skills | Accounting & financial Reports | Excellent Team Member  | Learship 
+ | Managing Skills | Accounting & financial Reports | Excellent Team Member  | Learship 
  
 ## Experience
 
