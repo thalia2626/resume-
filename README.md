@@ -1,7 +1,10 @@
 # Thalia Salguero
 ---
 
- 
+## Objectives: 	
+Be team player with ability to build effective working relationships throughout all levels of the organizations, also have
+ability to work independently and as part of a team, to work in a dynamic and changing environment and have ability to accommodate extended periods of computer use to meet business operations.
+
 ---
 ## Skills:
 - [ ] Research and Data Collection
