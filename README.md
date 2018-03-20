@@ -11,8 +11,8 @@ Perform proactively, organize, and experience on providing a great service to ou
 Experience
 
 Currito Restaurant - Staff Supervisor – Jan. 2017/Present
-● Supervise daily restaurant operations such as kitchen managing, cashier, and provide direct instructions to team members
-● Provide ongoing customer service and create a friendly environment to take care of all our customers.
+-[ ] Supervise daily restaurant operations such as kitchen managing, cashier, and provide direct instructions to team members
+-[ ]  Provide ongoing customer service and create a friendly environment to take care of all our customers.
 ● Generally open and close store during business hours as well as create a daily report on store financial operations.
 ● Create team members work schedule for weekly operations.
 ● Maintain records of sales, returns, and invoices in file.
