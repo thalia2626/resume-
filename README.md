@@ -1,8 +1,9 @@
 # Thalia Salguero
 (202) 417-1710
  
+ ```
 Work with clients and team member to develop a high standard of customer service. Perform proactively, organize, and experience on providing a great service to our clients and our company. I will bring a 2 years of experience in the customer service environment and eager to work hard for the company’s main goals.
- 
+ ```
 Experience
 
 Currito Restaurant - Staff Supervisor – Jan. 2017/Present
