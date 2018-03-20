@@ -45,6 +45,6 @@ Chipotle – Team Member – May 2016/November 2016
 # Education
 Rockville, MD Montgomery Community College
 
-415 East Diamond Ave, Gaithersburg, MD 20877 | afontes@identity-youth.org | 301-300-5254
+
 
 
