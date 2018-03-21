@@ -44,7 +44,7 @@ Chipotle – Team Member – May 2016/November 2016
 
 # Education
 Rockville, MD Montgomery Community College
-
+Gaithersburg Hight School Gaithersburg Md 20877
 
 
 
