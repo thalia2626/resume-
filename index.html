@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thalia Salguero — Chief Supply Chain Officer</title>
+<meta name="description" content="Thalia Salguero — Chief Supply Chain Officer. 10 years of end-to-end supply chain leadership: procurement, logistics, planning, risk, quality, and federal contracting.">
+<style>
+  :root{
+    --navy:#00315c; --navy2:#014a8c; --blue:#1f6feb; --green:#2ea043;
+    --purple:#8957e5; --amber:#f0a020;
+    --bg:#f5f8fc; --card:#ffffff; --ink:#16222f; --muted:#5b6b7c; --line:#e3eaf2;
+    --track:#e7eef6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Roboto,-apple-system,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  section{padding:64px 0}
+  h2{font-size:1.9rem;color:var(--navy);letter-spacing:.3px;margin-bottom:6px}
+  h2 .em{color:var(--blue)}
+  .lead{color:var(--muted);margin-bottom:34px;font-size:1.02rem}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:20;background:rgba(0,49,92,.96);backdrop-filter:blur(6px)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  nav .brand{color:#fff;font-weight:700;letter-spacing:1px}
+  nav .links a{color:#cfe0f2;margin-left:22px;font-size:.9rem;font-weight:600}
+  nav .links a:hover{color:#fff}
+  @media(max-width:680px){nav .links{display:none}}
+
+  /* HERO */
+  .hero{background:radial-gradient(1200px 500px at 70% -10%,#0a63b4 0%,var(--navy) 55%,#00234a 100%);
+    color:#fff;padding:78px 0 66px;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 2px,transparent 2px 46px);opacity:.5}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.78rem;color:#9fd0ff;font-weight:700}
+  .hero h1{font-size:3.3rem;line-height:1.05;margin:10px 0 6px;letter-spacing:.5px}
+  .hero .role{font-size:1.35rem;font-weight:600;color:#e9f3ff}
+  .hero .tag{color:#bcd6f2;margin:14px 0 26px;max-width:620px;font-size:1.05rem}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:8px;
+    font-weight:700;font-size:.95rem;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:#fff;color:var(--navy);box-shadow:0 8px 22px rgba(0,0,0,.22)}
+  .btn.ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35)}
+
+  /* STAT STRIP */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-38px;position:relative;z-index:5}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;
+    box-shadow:0 10px 30px rgba(10,40,80,.08)}
+  .stat .n{font-size:1.7rem;font-weight:800;color:var(--navy)}
+  .stat .l{font-size:.82rem;color:var(--muted);font-weight:600}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:2.5rem}}
+
+  /* CARDS */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;
+    transition:transform .15s,box-shadow .15s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(10,40,80,.12)}
+  .card .ico{font-size:1.6rem}
+  .card h3{margin:10px 0 6px;color:var(--navy);font-size:1.08rem}
+  .card p{color:var(--muted);font-size:.92rem}
+
+  /* SKILL GAUGES */
+  .gauges{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px}
+  @media(max-width:640px){.gauges{grid-template-columns:1fr}}
+  .g .top{display:flex;justify-content:space-between;font-size:.9rem;font-weight:600;margin-bottom:6px}
+  .g .top span:last-child{color:var(--blue)}
+  .bar{height:10px;background:var(--track);border-radius:20px;overflow:hidden}
+  .fill{height:100%;width:0;border-radius:20px;
+    background:linear-gradient(90deg,var(--navy),var(--blue));transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+
+  /* DOMAIN CHIPS */
+  .domain{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .domain h4{color:var(--navy);font-size:1rem;margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:#eef4fb;color:#25415f;border:1px solid #dbe7f4;border-radius:20px;
+    padding:5px 12px;font-size:.82rem;font-weight:600}
+
+  /* TIMELINE */
+  .tl{position:relative;margin-left:14px;border-left:3px solid var(--line);padding-left:26px}
+  .tl .item{position:relative;padding-bottom:28px}
+  .tl .item:before{content:"";position:absolute;left:-36px;top:2px;width:16px;height:16px;border-radius:50%;
+    background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+  .tl .item.star:before{background:var(--amber);box-shadow:0 0 0 2px var(--amber)}
+  .tl .when{font-size:.8rem;font-weight:700;color:var(--blue);letter-spacing:.5px;text-transform:uppercase}
+  .tl .what{font-size:1.12rem;font-weight:700;color:var(--navy);margin:2px 0}
+  .tl .where{color:var(--muted);font-size:.92rem;margin-bottom:6px}
+  .tl ul{margin:6px 0 0 18px;color:#3a4a5a;font-size:.92rem}
+  .tl ul li{margin-bottom:3px}
+  .concurrent{background:#fff8ec;border:1px dashed #f0c98a;border-radius:10px;padding:14px 16px;margin-top:6px}
+  .concurrent b{color:#9a6a10}
+
+  /* CONTACT */
+  .contact{background:var(--navy);color:#fff;text-align:center;border-radius:16px;padding:44px 22px}
+  .contact h2{color:#fff}
+  .contact .lead{color:#bcd6f2}
+  .contact .cta{justify-content:center}
+
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:26px 0 40px}
+  .sec-eyebrow{color:var(--blue);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.76rem}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">THALIA&nbsp;SALGUERO</span>
+  <span class="links">
+    <a href="#about">About</a><a href="#strengths">Strengths</a>
+    <a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Chief Supply Chain Officer</div>
+  <h1>Thalia Salguero</h1>
+  <div class="role">End-to-End Supply Chain · Procurement · Logistics · Federal-Contracting Key Personnel</div>
+  <p class="tag">Ten years running the whole chain — plan, source, make, deliver, returns.
+     Grew from the floor up: one year as an intern, then nine years as CSCO owning
+     P&amp;L, sourcing, logistics, planning, risk, and quality.</p>
+  <div class="cta">
+    <a class="btn primary" href="Thalia-Salguero-Resume.docx">⬇ Download Résumé</a>
+    <a class="btn ghost" href="mailto:thaliasalguero77@gmail.com">✉ Email Thalia</a>
+    <a class="btn ghost" href="tel:+12405568581">📞 (240) 556-8581</a>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="n">10+</div><div class="l">Years in Supply Chain</div></div>
+    <div class="stat"><div class="n">CSCO</div><div class="l">Chief Supply Chain Officer</div></div>
+    <div class="stat"><div class="n">541614</div><div class="l">Federal NAICS Ready</div></div>
+    <div class="stat"><div class="n">EN / ES</div><div class="l">Fully Bilingual</div></div>
+  </div>
+</div>
+
+<section id="about"><div class="wrap">
+  <div class="sec-eyebrow">Profile</div>
+  <h2>An operator who owns the <span class="em">whole chain</span></h2>
+  <p class="lead">Chief Supply Chain Officer with 10 years at Albright Laboratories LLC — one year as a
+    supply chain intern followed by nine years leading the end-to-end supply chain. Owns P&amp;L and
+    operating-budget responsibility, strategic sourcing and vendor negotiation, logistics and distribution,
+    inventory and demand planning, supply-chain risk management, and quality and compliance — aligned to
+    federal contracting under NAICS 541614. Experience-first, hands-on, and bilingual.</p>
+</div></section>
+
+<section id="strengths" style="background:#eef3f9"><div class="wrap">
+  <div class="sec-eyebrow">Core Strengths</div>
+  <h2>What Thalia delivers</h2>
+  <p class="lead">Eight capabilities that move cost, service, and risk in the right direction.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">🤝</div><h3>Sourcing &amp; Negotiation</h3><p>Strategic sourcing, supplier scorecards, contract management, and vendor negotiation that lower total cost of ownership.</p></div>
+    <div class="card"><div class="ico">💰</div><h3>P&amp;L &amp; Cost Reduction</h3><p>Budget ownership with cost takeout, margin improvement, and working-capital gains through vendor consolidation.</p></div>
+    <div class="card"><div class="ico">🚚</div><h3>Logistics &amp; Distribution</h3><p>Freight, carriers, 3PL/4PL, and network optimization driving higher on-time-in-full (OTIF) delivery.</p></div>
+    <div class="card"><div class="ico">📦</div><h3>Inventory &amp; Planning</h3><p>S&amp;OP, demand planning, inventory optimization, and capacity planning that balance service and cash.</p></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Risk &amp; Resilience</h3><p>Business continuity and supplier-risk plans against global disruption, supplier failure, and cyber threats.</p></div>
+    <div class="card"><div class="ico">✅</div><h3>Quality &amp; Compliance</h3><p>Quality-management oversight to ISO 9001 with FAR/DFARS regulatory and contractual compliance.</p></div>
+    <div class="card"><div class="ico">📊</div><h3>Data &amp; Systems</h3><p>ERP (SAP/Oracle), advanced planning systems, and KPI &amp; dashboard governance for data-driven decisions.</p></div>
+    <div class="card"><div class="ico">👥</div><h3>Leadership</h3><p>Builds and leads cross-functional teams and mentors talent from the floor up.</p></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sec-eyebrow">Proficiency</div>
+  <h2>Supply chain <span class="em">skill gauges</span></h2>
+  <p class="lead">Depth built over a decade owning every link of the chain.</p>
+  <div class="gauges" id="gauges">
+    <!-- filled by data-* below -->
+  </div>
+</div></section>
+
+<section style="background:#eef3f9"><div class="wrap">
+  <div class="sec-eyebrow">Full Toolkit</div>
+  <h2>Skills by domain</h2>
+  <p class="lead">A complete supply-chain skill set, end to end.</p>
+
+  <div class="domain"><h4>Purchasing &amp; Procurement</h4><div class="chips">
+    <span class="chip">PO processing</span><span class="chip">Requisitions</span><span class="chip">Three-way match</span>
+    <span class="chip">RFQ / RFP</span><span class="chip">Vendor onboarding</span><span class="chip">Contract compliance</span></div></div>
+
+  <div class="domain"><h4>Inventory Control</h4><div class="chips">
+    <span class="chip">Cycle counting</span><span class="chip">Accuracy</span><span class="chip">Safety stock</span>
+    <span class="chip">Reorder points</span><span class="chip">FIFO / LIFO</span><span class="chip">WMS</span><span class="chip">Lot tracking</span></div></div>
+
+  <div class="domain"><h4>Buying &amp; Sourcing</h4><div class="chips">
+    <span class="chip">Strategic sourcing</span><span class="chip">TCO</span><span class="chip">Spend analysis</span>
+    <span class="chip">SRM</span><span class="chip">Supplier scorecards</span><span class="chip">Category management</span></div></div>
+
+  <div class="domain"><h4>Logistics &amp; Transportation</h4><div class="chips">
+    <span class="chip">Freight</span><span class="chip">Carriers</span><span class="chip">Route / load planning</span>
+    <span class="chip">3PL / 4PL</span><span class="chip">Incoterms</span><span class="chip">TMS</span>
+    <span class="chip">OTIF</span><span class="chip">Reverse logistics</span></div></div>
+
+  <div class="domain"><h4>Analytics &amp; Systems</h4><div class="chips">
+    <span class="chip">Data analytics</span><span class="chip">KPI dashboards</span><span class="chip">Forecasting</span>
+    <span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Tableau</span>
+    <span class="chip">Excel</span><span class="chip">SAP / Oracle</span></div></div>
+
+  <div class="domain"><h4>Demand &amp; Supply Planning</h4><div class="chips">
+    <span class="chip">Statistical forecasting</span><span class="chip">S&amp;OP / S&amp;OE</span><span class="chip">CPFR</span>
+    <span class="chip">MAPE</span><span class="chip">Replenishment</span><span class="chip">Kinaxis / o9 / Blue Yonder</span></div></div>
+
+  <div class="domain"><h4>Quality &amp; Compliance</h4><div class="chips">
+    <span class="chip">QMS</span><span class="chip">ISO 9001</span><span class="chip">CAPA</span><span class="chip">SPC</span>
+    <span class="chip">FMEA</span><span class="chip">Root cause</span><span class="chip">FAR / DFARS</span><span class="chip">SOPs</span></div></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="sec-eyebrow">Career Journey</div>
+  <h2>From the floor up to the <span class="em">C-suite</span></h2>
+  <p class="lead">Ten years at Albright Laboratories LLC, plus concurrent operations experience.</p>
+  <div class="tl">
+    <div class="item star">
+      <div class="when">Jun 2017 – Present · ★ 9 years</div>
+      <div class="what">Chief Supply Chain Officer (CSCO)</div>
+      <div class="where">Albright Laboratories LLC · Germantown, MD</div>
+      <ul>
+        <li>Owns the end-to-end supply chain — plan, source, make, deliver, returns.</li>
+        <li>P&amp;L / budget ownership; strategic sourcing, vendor negotiation, cost reduction &amp; TCO.</li>
+        <li>Logistics &amp; distribution, S&amp;OP, inventory &amp; demand planning, risk, and quality.</li>
+        <li>Key Personnel for federal contracting under NAICS 541614; FAR/DFARS compliance.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="when">Jun 2016 – Jun 2017</div>
+      <div class="what">Supply Chain Intern</div>
+      <div class="where">Albright Laboratories LLC · Germantown, MD</div>
+      <ul>
+        <li>Learned the chain from the floor up — purchasing, inventory, vendor communication, reporting.</li>
+        <li>Built the foundation that led to promotion into the CSCO role.</li>
+      </ul>
+    </div>
+    <div class="concurrent">
+      <b>Concurrent experience (second job):</b> Property Management — Community Coordinator &amp;
+      Leasing Consultant across four Maryland communities (2021–present): vendor &amp; contractor
+      coordination, inspections, capital-improvement projects, and operations.
+    </div>
+  </div>
+</div></section>
+
+<section style="background:#eef3f9"><div class="wrap">
+  <div class="sec-eyebrow">Education</div>
+  <h2>Experience-first</h2>
+  <p class="lead"><b>General Studies</b> — Montgomery College, Germantown, MD.
+     Qualifies on 10 years of progressive supply-chain leadership (no degree required for the role).</p>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Let's talk supply chain</h2>
+    <p class="lead">Available for Chief Supply Chain Officer and senior supply-chain / operations roles.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:thaliasalguero77@gmail.com">✉ thaliasalguero77@gmail.com</a>
+      <a class="btn ghost" href="tel:+12405568581">📞 (240) 556-8581</a>
+      <a class="btn ghost" href="Thalia-Salguero-Resume.docx">⬇ Download Résumé</a>
+    </div>
+  </div>
+</div></section>
+
+<footer>Thalia Salguero · Chief Supply Chain Officer · Germantown, MD · Bilingual (English / Spanish) · NAICS 541614</footer>
+
+<script>
+  var SKILLS=[
+    ["Strategic Sourcing & Procurement",95],["Supplier / Vendor Management",95],
+    ["Contract Negotiation",90],["P&L / Budget Ownership",90],
+    ["Cost Reduction & TCO",90],["Logistics & Distribution",85],
+    ["Inventory Optimization",85],["Demand Planning / S&OP",80],
+    ["Quality Management (ISO 9001)",85],["Supply Chain Risk & Resilience",80],
+    ["ERP Systems (SAP / Oracle)",80],["Data Analytics & KPIs",80],
+    ["Federal Contracting / NAICS 541614",85],["Cross-Functional Leadership",95],
+    ["Continuous Improvement (Lean/Six Sigma)",80],["Bilingual: English & Spanish",100]
+  ];
+  var box=document.getElementById('gauges');
+  SKILLS.forEach(function(s){
+    var d=document.createElement('div');d.className='g';
+    d.innerHTML='<div class="top"><span>'+s[0]+'</span><span>'+s[1]+'%</span></div>'+
+      '<div class="bar"><div class="fill" data-w="'+s[1]+'"></div></div>';
+    box.appendChild(d);
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){
+      e.target.querySelectorAll('.fill').forEach(function(f){f.style.width=f.dataset.w+'%';});
+      io.unobserve(e.target);
+    }});
+  },{threshold:.25});
+  io.observe(document.getElementById('skills'));
+</script>
+</body>
+</html>
