@@ -16,6 +16,14 @@
 [![Phone](https://img.shields.io/badge/Call-(240)%20556--8581-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+12405568581)
 ![Location](https://img.shields.io/badge/Germantown,%20MD%2020876-informational?style=for-the-badge&logo=googlemaps&logoColor=white)
 
+<br>
+
+### 🌐 Live page — **share this link publicly:**
+
+## 👉 https://thalia2626.github.io/resume-/
+
+[![View Live Site](https://img.shields.io/badge/View%20Live%20Site-thalia2626.github.io%2Fresume--%2F-00315C?style=for-the-badge&logo=githubpages&logoColor=white)](https://thalia2626.github.io/resume-/)
+
 </div>
 
 ---
