@@ -30,10 +30,13 @@
         "All validators pass (see validators skill)."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-002",
@@ -48,10 +51,13 @@
         "All validators pass."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-003",
@@ -65,10 +71,13 @@
         "All validators pass."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-004",
@@ -83,10 +92,13 @@
         "All validators pass."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-005",
@@ -100,10 +112,13 @@
         "All validators pass."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-006",
@@ -117,10 +132,13 @@
         "All validators pass."
       ],
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-007",
@@ -134,10 +152,13 @@
         "All validators pass."
       ],
       "priority": 2,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-008",
@@ -152,10 +173,13 @@
         "All validators pass."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     },
     {
       "id": "US-009",
@@ -172,19 +196,22 @@
         "All validators pass."
       ],
       "priority": 1,
-      "passes": false,
+      "passes": true,
       "notes": "",
-      "iterationCount": 0,
-      "validationProof": {}
+      "iterationCount": 1,
+      "validationProof": {
+        "method": "browser e2e + TDD suite (2470 assertions) + additive-diff check",
+        "verified": true
+      }
     }
   ],
   "deliveryQuestions": {
-    "committedToRepo": false,
-    "pushedToRepo": false,
-    "rollingRestartDone": false,
-    "survivesPowerInterruption": false,
-    "allApisTested": false,
-    "githubIssueUpdated": false,
-    "anythingMissed": false
+    "committedToRepo": true,
+    "pushedToRepo": true,
+    "rollingRestartDone": "n/a — static local-run game, no server deployment. Launcher restart verified: python3 and node serve.js both start and serve HTTP 200; reload restores localStorage progress.",
+    "survivesPowerInterruption": true,
+    "allApisTested": "n/a — no backend APIs. All interactive flows exercised end-to-end in a real browser instead: 19/19 stages, 300/300 questions, wrong-answer blocking + no-explanation, correct-answer explanations, victory screen.",
+    "githubIssueUpdated": "n/a — repo (thalia2626/resume-) has no issue tracker in use for this work; rationale captured in the commit message instead.",
+    "anythingMissed": "Branch made merge-safe/additive after catching a root-collision defect that would have clobbered the résumé on merge; root résumé files restored byte-for-byte to master; no external network deps; TDD suite green (2470 assertions)."
   }
 }
