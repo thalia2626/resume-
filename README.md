@@ -47,6 +47,29 @@ That's the game. **Play right there in the browser.** When you're done, press
 
 ---
 
+## 🙋 Don't want to use a terminal? Just tell Claude to do it
+
+If typing commands isn't your thing, you can have **Claude do all of it for you** —
+but it has to be **Claude Code** (the app that runs in a terminal on your computer),
+**not** the Claude website. Here's exactly what to do:
+
+**1.** Open **Claude Code** in a terminal, in the folder where you keep (or want) this project.
+
+**2.** Copy and paste this message to Claude, word for word:
+
+> Please get the `exam-prep` branch of the `thalia2626/resume-` repo (clone it if it
+> isn't here yet), then start the CSCO Interview Gauntlet game locally and open it in
+> my browser so I can play. It's in the `game_supply_chain` folder — run its launcher,
+> tell me the local URL, and leave the server running.
+
+**3.** When Claude gives you a link like **http://localhost:8000/index.html**, click it
+and play. When you're finished, tell Claude **"stop the server."**
+
+That's the whole thing — you paste one message, Claude handles the git and the server,
+and you just play in your browser.
+
+---
+
 ## 🤖 Running this with Claude? Read this first
 
 **This must be done with _Claude Code_ (the terminal / CLI app) — _not_ the web
