@@ -1,0 +1,190 @@
+{
+  "project": "CSCO Interview Prep — Staged Quiz Game",
+  "branchName": "exam-prep",
+  "description": "An interactive, single-file (GitHub Pages friendly) quiz game built from the 300 Chief Supply Chain Officer interview questions. The 19 source sections become 19 sequential stages/levels. The player must clear each stage to unlock the next and reach the final level. Each question presents multiple answers with exactly one correct answer. Clicking the correct answer turns it green and shows a 'why this is right' explanation pop-up; clicking a wrong answer turns it red and shows an 'Incorrect, try again' pop-up with no explanation, and lets the player retry. On finishing the whole game, a personal motivational victory message is shown.",
+  "priorLessonsConsulted": [
+    {
+      "lessonId": "docx-source-of-truth",
+      "summary": "For this repo, the .docx resume is the source of truth; do not regenerate content from the .txt. Applies only to resume content, not the interview question bank.",
+      "source": "long-term-memory",
+      "appliedAs": "design_constraint"
+    },
+    {
+      "lessonId": "single-file-pages-site",
+      "summary": "The existing live site (index.html) is a single self-contained HTML file served via GitHub Pages at thalia2626.github.io/resume-/. New quiz app should follow the same zero-build, self-contained pattern for frictionless hosting.",
+      "source": "local",
+      "appliedAs": "design_constraint"
+    }
+  ],
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Staged progression through 19 sections",
+      "description": "As a candidate practicing, I want the 300 questions grouped into the 19 source sections as sequential locked stages, so that I progress level by level and must reach the final stage.",
+      "acceptanceCriteria": [
+        "All 19 sections from interview.txt are represented as ordered stages using their exact section names.",
+        "Stage N+1 is locked until Stage N is cleared.",
+        "A visible stage map shows locked / current / cleared status.",
+        "The final stage is only reachable after clearing all prior stages.",
+        "Typecheck/lint passes (HTML validates, no JS console errors).",
+        "All validators pass (see validators skill)."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-002",
+      "title": "One correct answer per multiple-choice question",
+      "description": "As a player, I want each question to show several answers where exactly one is correct, so that I actively choose rather than read passively.",
+      "acceptanceCriteria": [
+        "Every question has exactly one correct option and 2+ distractors.",
+        "Answer order is presented so the correct one is not always in the same position.",
+        "Each of the 300 source questions maps to one quiz item.",
+        "Data is validated: no question has zero or multiple correct flags.",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-003",
+      "title": "Correct answer = green + explanation pop-up",
+      "description": "As a player, when I click the correct answer I want it to turn green and a pop-up to explain WHY it is right, so that I learn the reasoning.",
+      "acceptanceCriteria": [
+        "Clicking the correct option applies a green state to that option.",
+        "A pop-up appears containing the explanation of why the answer is correct.",
+        "The player can advance to the next question from the correct-answer pop-up.",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-004",
+      "title": "Wrong answer = red + retry, no explanation",
+      "description": "As a player, when I click a wrong answer I want it to turn red and a pop-up saying 'Incorrect, try again' with no explanation, so that I must keep thinking until I get it right.",
+      "acceptanceCriteria": [
+        "Clicking a wrong option applies a red state to that option.",
+        "A pop-up shows 'Incorrect, try again' with NO explanation text.",
+        "The player stays on the same question and can pick again.",
+        "A wrong option, once revealed, does not block re-attempting other options.",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-005",
+      "title": "Victory message on completion",
+      "description": "As a player who finishes the final stage, I want the exact personal motivational message shown, so that completing the game delivers the intended payoff.",
+      "acceptanceCriteria": [
+        "Finishing the last question of the last stage shows the full victory message verbatim.",
+        "Message text matches the operator-provided copy exactly.",
+        "The completion screen is visually distinct (a celebration state).",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-006",
+      "title": "Progress persists and is resumable",
+      "description": "As a returning player, I want my cleared stages remembered so I can resume rather than restart from scratch.",
+      "acceptanceCriteria": [
+        "Cleared-stage progress is saved to localStorage.",
+        "Reloading the page restores the unlocked stage map.",
+        "A reset control clears progress to start over.",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-007",
+      "title": "Distribution on exam-prep branch",
+      "description": "As the operator, I want the whole game to be a self-contained artifact committed to the exam-prep branch, so it can be pulled and run locally with no build step.",
+      "acceptanceCriteria": [
+        "Game is a self-contained index.html (no external network dependencies) plus its question data (questions.js).",
+        "Everything committed and pushed to origin/exam-prep.",
+        "No external CDN / network calls; all assets local.",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-008",
+      "title": "README is a Claude-readable bootstrap runbook",
+      "description": "As Claude (or a human) reading the repo, I want README.md to explain exactly how to fetch the exam-prep branch and launch the game locally, so the game can be started from a clean clone with a single obvious step.",
+      "acceptanceCriteria": [
+        "README.md states this is the exam-prep branch and gives the exact git commands to fetch/checkout it.",
+        "README gives a single launch command per platform (Windows and Linux/macOS).",
+        "Instructions are unambiguous enough for an AI agent to execute end-to-end without guessing.",
+        "README explains what happens (local web server starts, browser opens to a local URL, game begins).",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    },
+    {
+      "id": "US-009",
+      "title": "One-command local launcher that opens the browser",
+      "description": "As a player on Windows or Linux/macOS, I want to run one script that starts a local server and automatically opens my default browser to the game URL, so the game 'just starts' with no manual steps.",
+      "acceptanceCriteria": [
+        "A launcher exists for Windows (play.bat or play.ps1) and for Linux/macOS (play.sh).",
+        "The launcher starts a local static web server serving the repo folder (preferring an already-installed runtime: python3/python, else node, else php).",
+        "The launcher auto-opens the default browser to the served local URL (e.g. http://localhost:8000).",
+        "The launcher picks a free port or a sensible default and prints the URL it used.",
+        "The launcher does not require installing new dependencies when a common runtime is already present.",
+        "Launcher runs from the repo root regardless of the caller's current directory.",
+        "Typecheck passes.",
+        "All validators pass."
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": "",
+      "iterationCount": 0,
+      "validationProof": {}
+    }
+  ],
+  "deliveryQuestions": {
+    "committedToRepo": false,
+    "pushedToRepo": false,
+    "rollingRestartDone": false,
+    "survivesPowerInterruption": false,
+    "allApisTested": false,
+    "githubIssueUpdated": false,
+    "anythingMissed": false
+  }
+}

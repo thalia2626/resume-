@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSCO Interview Prep — The Gauntlet</title>
+<style>
+  :root {
+    --navy: #00315c;
+    --navy-2: #1f6feb;
+    --green: #2ea043;
+    --green-deep: #1a7431;
+    --red: #d1341f;
+    --red-deep: #a11;
+    --gold: #f0b429;
+    --bg: #0b1220;
+    --panel: #121a2b;
+    --panel-2: #182338;
+    --ink: #e8eefc;
+    --muted: #97a6c4;
+    --line: #26324b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(1200px 800px at 50% -200px, #16233e 0%, var(--bg) 60%);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 24px 18px 80px; }
+
+  header.app { text-align: center; margin-bottom: 18px; }
+  header.app .kicker { letter-spacing: 3px; text-transform: uppercase; font-size: 12px; color: var(--muted); }
+  header.app h1 { margin: 6px 0 4px; font-size: clamp(24px, 5vw, 40px); }
+  header.app .sub { color: var(--muted); font-size: 14px; }
+
+  .bar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin: 16px 0; flex-wrap: wrap;
+  }
+  .progress-shell { flex: 1; min-width: 200px; height: 12px; background: var(--panel); border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--navy-2), var(--green)); transition: width .4s ease; }
+  .btn {
+    background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+    padding: 9px 14px; border-radius: 10px; font-size: 14px; cursor: pointer;
+    transition: transform .08s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:hover { background: #21304d; border-color: var(--navy-2); }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: linear-gradient(180deg, var(--navy-2), var(--navy)); border-color: var(--navy-2); font-weight: 600; }
+  .btn.ghost { background: transparent; }
+
+  /* ---------- Stage map ---------- */
+  .stage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .stage-card {
+    text-align: left; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 14px 16px; cursor: pointer; position: relative;
+    transition: transform .1s ease, border-color .2s ease, background .2s ease;
+  }
+  .stage-card:hover:not(.locked) { transform: translateY(-2px); border-color: var(--navy-2); }
+  .stage-card.locked { opacity: .55; cursor: not-allowed; }
+  .stage-card.cleared { border-color: var(--green); }
+  .stage-card .idx { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
+  .stage-card .name { font-weight: 650; margin: 4px 0 8px; font-size: 15px; line-height: 1.3; }
+  .stage-card .meta { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); }
+  .badge.cleared { color: var(--green); border-color: var(--green); }
+  .badge.locked { color: var(--muted); }
+  .badge.open { color: var(--gold); border-color: var(--gold); }
+  .stage-card .lockicon { position: absolute; top: 14px; right: 14px; font-size: 16px; }
+
+  /* ---------- Question view ---------- */
+  .qhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+  .qhead .stage-name { color: var(--navy-2); font-weight: 650; font-size: 14px; }
+  .qhead .counter { color: var(--muted); font-size: 13px; }
+  .qcard { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .qtext { font-size: clamp(17px, 2.6vw, 21px); line-height: 1.45; margin: 4px 0 18px; font-weight: 600; }
+  .options { display: grid; gap: 10px; }
+  .opt {
+    text-align: left; background: var(--panel-2); border: 1.5px solid var(--line); color: var(--ink);
+    padding: 14px 16px; border-radius: 12px; font-size: 15px; line-height: 1.4; cursor: pointer;
+    transition: border-color .15s ease, background .15s ease, transform .06s ease;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--navy-2); background: #20304c; }
+  .opt:active:not(:disabled) { transform: translateY(1px); }
+  .opt.correct { background: rgba(46,160,67,.18); border-color: var(--green); color: #d7ffe0; }
+  .opt.wrong { background: rgba(209,52,31,.16); border-color: var(--red); color: #ffd9d1; }
+  .opt:disabled { cursor: default; }
+  .opt .letter { display: inline-block; width: 22px; font-weight: 700; color: var(--muted); }
+
+  /* ---------- Pop-ups ---------- */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(4,8,16,.68); backdrop-filter: blur(3px);
+    display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50;
+  }
+  .overlay.show { display: flex; }
+  .modal {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+    max-width: 520px; width: 100%; padding: 24px; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    animation: pop .18s ease;
+  }
+  @keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal.correct { border-color: var(--green); }
+  .modal.wrong { border-color: var(--red); }
+  .modal h3 { margin: 0 0 6px; font-size: 20px; }
+  .modal.correct h3 { color: var(--green); }
+  .modal.wrong h3 { color: var(--red); }
+  .modal .why-label { text-transform: uppercase; letter-spacing: 2px; font-size: 11px; color: var(--muted); margin-top: 12px; }
+  .modal p { line-height: 1.55; color: var(--ink); margin: 8px 0 0; }
+  .modal .actions { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+
+  /* ---------- Stage clear + victory ---------- */
+  .center-screen { text-align: center; padding: 30px 10px; }
+  .center-screen .big { font-size: clamp(26px, 6vw, 44px); margin: 10px 0; }
+  .trophy { font-size: 64px; }
+  .victory {
+    background: linear-gradient(160deg, #12203a, #0b1220);
+    border: 1px solid var(--gold); border-radius: 20px; padding: 34px 26px; text-align: center;
+  }
+  .victory .trophy { font-size: 76px; }
+  .victory h2 { color: var(--gold); font-size: clamp(24px, 5vw, 34px); margin: 8px 0 18px; }
+  .victory .msg { font-size: clamp(16px, 2.4vw, 19px); line-height: 1.7; max-width: 640px; margin: 0 auto; color: var(--ink); }
+  .victory .msg strong { color: var(--gold); }
+
+  .hidden { display: none !important; }
+  footer.app { text-align: center; color: var(--muted); font-size: 12px; margin-top: 30px; }
+  a { color: var(--navy-2); }
+  .confetti { position: fixed; top: -10px; width: 9px; height: 14px; z-index: 40; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app">
+    <div class="kicker">Chief Supply Chain Officer · Interview Gauntlet</div>
+    <h1>The 300-Question Gauntlet</h1>
+    <div class="sub">Nineteen stages. One right answer each. Clear every stage to finish.</div>
+  </header>
+
+  <div class="bar">
+    <div class="progress-shell"><div class="progress-fill" id="progressFill"></div></div>
+    <div style="display:flex; gap:8px;">
+      <button class="btn ghost" id="homeBtn">Stage Map</button>
+      <button class="btn ghost" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  <!-- Stage map -->
+  <section id="mapView">
+    <div class="stage-grid" id="stageGrid"></div>
+  </section>
+
+  <!-- Question view -->
+  <section id="quizView" class="hidden">
+    <div class="qhead">
+      <div class="stage-name" id="qStageName"></div>
+      <div class="counter" id="qCounter"></div>
+    </div>
+    <div class="qcard">
+      <div class="qtext" id="qText"></div>
+      <div class="options" id="qOptions"></div>
+    </div>
+  </section>
+
+  <!-- Stage clear -->
+  <section id="stageClearView" class="hidden">
+    <div class="center-screen">
+      <div class="trophy">✅</div>
+      <div class="big" id="stageClearTitle">Stage cleared!</div>
+      <p style="color:var(--muted)" id="stageClearSub"></p>
+      <button class="btn primary" id="nextStageBtn">Continue</button>
+    </div>
+  </section>
+
+  <!-- Victory -->
+  <section id="victoryView" class="hidden">
+    <div class="victory">
+      <div class="trophy">🏆</div>
+      <h2>You finished the Gauntlet.</h2>
+      <div class="msg" id="victoryMsg"></div>
+      <div style="margin-top:24px;">
+        <button class="btn primary" id="playAgainBtn">Play again</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="app">
+    Built for Thalia Salguero · CSCO interview preparation · 300 questions across 19 domains.
+  </footer>
+</div>
+
+<!-- Answer feedback pop-up -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <h3 id="modalTitle"></h3>
+    <div id="modalBody"></div>
+    <div class="actions" id="modalActions"></div>
+  </div>
+</div>
+
+<script src="questions.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "csco_gauntlet_progress_v1";
+  var VICTORY_MESSAGE =
+    "You have not had confidence in yourself. You played yourself by bending to " +
+    "everyone else's rules — and look where you are now. But you have finished " +
+    "something, and this is a very valuable something. " +
+    "<strong>You deserve a great job — and it should not be a job, but a business.</strong> " +
+    "With these skills, and bilingual, you will hammer it home. " +
+    "But you gotta be confident in the interview and really know your stuff.";
+
+  // ---- Data guard ---------------------------------------------------------
+  if (typeof QUESTION_BANK === "undefined" || !Array.isArray(QUESTION_BANK)) {
+    document.getElementById("stageGrid").innerHTML =
+      '<p style="color:#ffd9d1">Question bank failed to load (questions.js). ' +
+      'Serve this folder over http (e.g. <code>python3 -m http.server</code>) and reload.</p>';
+    return;
+  }
+
+  // ---- State --------------------------------------------------------------
+  var state = {
+    clearedStages: loadProgress(),   // array of cleared stage indexes
+    currentStage: null,
+    currentQ: 0
+  };
+
+  // ---- Elements -----------------------------------------------------------
+  var el = {
+    mapView: byId("mapView"),
+    quizView: byId("quizView"),
+    stageClearView: byId("stageClearView"),
+    victoryView: byId("victoryView"),
+    stageGrid: byId("stageGrid"),
+    qStageName: byId("qStageName"),
+    qCounter: byId("qCounter"),
+    qText: byId("qText"),
+    qOptions: byId("qOptions"),
+    progressFill: byId("progressFill"),
+    overlay: byId("overlay"),
+    modal: byId("modal"),
+    modalTitle: byId("modalTitle"),
+    modalBody: byId("modalBody"),
+    modalActions: byId("modalActions"),
+    stageClearTitle: byId("stageClearTitle"),
+    stageClearSub: byId("stageClearSub"),
+    victoryMsg: byId("victoryMsg"),
+    nextStageBtn: byId("nextStageBtn"),
+    playAgainBtn: byId("playAgainBtn"),
+    homeBtn: byId("homeBtn"),
+    resetBtn: byId("resetBtn")
+  };
+
+  // ---- Wiring -------------------------------------------------------------
+  el.homeBtn.addEventListener("click", showMap);
+  el.resetBtn.addEventListener("click", function () {
+    if (confirm("Reset all progress and start the Gauntlet over?")) {
+      state.clearedStages = [];
+      saveProgress();
+      showMap();
+    }
+  });
+  el.playAgainBtn.addEventListener("click", function () {
+    state.clearedStages = [];
+    saveProgress();
+    showMap();
+  });
+
+  // ---- Helpers ------------------------------------------------------------
+  function byId(id) { return document.getElementById(id); }
+
+  function loadProgress() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+  function saveProgress() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.clearedStages)); }
+    catch (e) { /* storage may be unavailable; game still works in-session */ }
+  }
+  function isCleared(i) { return state.clearedStages.indexOf(i) !== -1; }
+  function isUnlocked(i) { return i === 0 || isCleared(i - 1); }
+  function markCleared(i) { if (!isCleared(i)) { state.clearedStages.push(i); saveProgress(); } }
+
+  function showOnly(view) {
+    [el.mapView, el.quizView, el.stageClearView, el.victoryView].forEach(function (v) {
+      v.classList.add("hidden");
+    });
+    view.classList.remove("hidden");
+  }
+
+  function updateProgressBar() {
+    var pct = Math.round((state.clearedStages.length / QUESTION_BANK.length) * 100);
+    el.progressFill.style.width = pct + "%";
+  }
+
+  // ---- Stage map ----------------------------------------------------------
+  function showMap() {
+    hideOverlay();
+    state.currentStage = null;
+    el.stageGrid.innerHTML = "";
+    QUESTION_BANK.forEach(function (stage, i) {
+      var cleared = isCleared(i);
+      var unlocked = isUnlocked(i);
+      var card = document.createElement("button");
+      card.className = "stage-card" + (cleared ? " cleared" : "") + (unlocked ? "" : " locked");
+      card.disabled = !unlocked;
+
+      var badgeClass = cleared ? "cleared" : (unlocked ? "open" : "locked");
+      var badgeText = cleared ? "Cleared" : (unlocked ? "Open" : "Locked");
+      var lock = unlocked ? (cleared ? "🏅" : "▶️") : "🔒";
+
+      card.innerHTML =
+        '<div class="lockicon">' + lock + "</div>" +
+        '<div class="idx">STAGE ' + (i + 1) + " / " + QUESTION_BANK.length + "</div>" +
+        '<div class="name">' + escapeHtml(stage.section) + "</div>" +
+        '<div class="meta"><span class="badge ' + badgeClass + '">' + badgeText + "</span>" +
+        "<span>" + stage.questions.length + " questions</span></div>";
+
+      if (unlocked) {
+        card.addEventListener("click", function () { startStage(i); });
+      }
+      el.stageGrid.appendChild(card);
+    });
+    updateProgressBar();
+    showOnly(el.mapView);
+  }
+
+  // ---- Play a stage -------------------------------------------------------
+  function startStage(i) {
+    state.currentStage = i;
+    state.currentQ = 0;
+    renderQuestion();
+    showOnly(el.quizView);
+  }
+
+  function currentStageObj() { return QUESTION_BANK[state.currentStage]; }
+
+  function renderQuestion() {
+    var stage = currentStageObj();
+    var q = stage.questions[state.currentQ];
+    el.qStageName.textContent = "Stage " + (state.currentStage + 1) + " — " + stage.section;
+    el.qCounter.textContent = "Question " + (state.currentQ + 1) + " of " + stage.questions.length;
+    el.qText.textContent = q.q;
+
+    el.qOptions.innerHTML = "";
+    // Present options in the data's given order (data is pre-shuffled per item).
+    q.options.forEach(function (opt, idx) {
+      var b = document.createElement("button");
+      b.className = "opt";
+      b.innerHTML = '<span class="letter">' + String.fromCharCode(65 + idx) + ".</span>" +
+                    escapeHtml(opt.text);
+      b.addEventListener("click", function () { answer(b, opt, q); });
+      el.qOptions.appendChild(b);
+    });
+  }
+
+  function answer(button, opt, q) {
+    if (button.disabled) return;
+    if (opt.correct) {
+      button.classList.add("correct");
+      button.disabled = true;
+      showCorrect(q);
+    } else {
+      button.classList.add("wrong");
+      button.disabled = true;   // this specific wrong option is spent; others remain
+      showWrong();
+    }
+  }
+
+  // ---- Pop-ups ------------------------------------------------------------
+  function showCorrect(q) {
+    el.modal.className = "modal correct";
+    el.modalTitle.textContent = "Correct ✓";
+    el.modalBody.innerHTML =
+      '<div class="why-label">Why this is the strong answer</div>' +
+      "<p>" + escapeHtml(q.why) + "</p>";
+    el.modalActions.innerHTML = "";
+    var next = document.createElement("button");
+    next.className = "btn primary";
+    var last = state.currentQ === currentStageObj().questions.length - 1;
+    next.textContent = last ? "Finish stage" : "Next question";
+    next.addEventListener("click", advance);
+    el.modalActions.appendChild(next);
+    showOverlay();
+  }
+
+  function showWrong() {
+    el.modal.className = "modal wrong";
+    el.modalTitle.textContent = "Incorrect, try again";
+    el.modalBody.innerHTML = "<p>Not quite. Think it through and pick another answer.</p>";
+    el.modalActions.innerHTML = "";
+    var ok = document.createElement("button");
+    ok.className = "btn";
+    ok.textContent = "Try again";
+    ok.addEventListener("click", hideOverlay);
+    el.modalActions.appendChild(ok);
+    showOverlay();
+  }
+
+  function advance() {
+    hideOverlay();
+    var stage = currentStageObj();
+    if (state.currentQ < stage.questions.length - 1) {
+      state.currentQ++;
+      renderQuestion();
+    } else {
+      clearStage();
+    }
+  }
+
+  function clearStage() {
+    var justCleared = state.currentStage;
+    markCleared(justCleared);
+    updateProgressBar();
+
+    var allDone = state.clearedStages.length === QUESTION_BANK.length;
+    if (allDone) {
+      showVictory();
+      return;
+    }
+    var nextIdx = justCleared + 1;
+    el.stageClearTitle.textContent = "Stage " + (justCleared + 1) + " cleared!";
+    el.stageClearSub.textContent =
+      "Unlocked: Stage " + (nextIdx + 1) + " — " + QUESTION_BANK[nextIdx].section;
+    el.nextStageBtn.textContent = "Start Stage " + (nextIdx + 1);
+    el.nextStageBtn.onclick = function () { startStage(nextIdx); };
+    showOnly(el.stageClearView);
+  }
+
+  function showVictory() {
+    el.victoryMsg.innerHTML = VICTORY_MESSAGE;
+    showOnly(el.victoryView);
+    celebrate();
+  }
+
+  function showOverlay() { el.overlay.classList.add("show"); }
+  function hideOverlay() { el.overlay.classList.remove("show"); }
+
+  // ---- Confetti (pure CSS/JS, no deps) -----------------------------------
+  function celebrate() {
+    var colors = ["#f0b429", "#2ea043", "#1f6feb", "#d1341f", "#e8eefc"];
+    for (var i = 0; i < 80; i++) {
+      (function (n) {
+        var c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = (Math.random() * 100) + "vw";
+        c.style.background = colors[n % colors.length];
+        c.style.transform = "rotate(" + (Math.random() * 360) + "deg)";
+        var dur = 2500 + Math.random() * 2000;
+        c.style.transition = "top " + dur + "ms linear, opacity " + dur + "ms linear";
+        document.body.appendChild(c);
+        // next frame -> animate down
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            c.style.top = "100vh";
+            c.style.opacity = "0";
+          });
+        });
+        setTimeout(function () { c.remove(); }, dur + 100);
+      })(i);
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  // ---- Boot ---------------------------------------------------------------
+  showMap();
+
+  // Expose a tiny hook for automated tests / validators.
+  window.__GAUNTLET__ = {
+    bank: QUESTION_BANK,
+    state: state,
+    victoryMessage: VICTORY_MESSAGE
+  };
+})();
+</script>
+</body>
+</html>
