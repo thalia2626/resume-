@@ -11,6 +11,16 @@ get it. Clear all 19 stages to finish.
 
 ---
 
+## 🎥 Watch the walkthrough first
+
+A short video explains how to launch and play the game:
+**[▶️ walkthrough.mov](walkthrough.mov)** (55 MB — click to download/play).
+
+> GitHub won't preview `.mov` inline, so the link downloads the file; open it in
+> any video player (QuickTime, VLC, etc.).
+
+---
+
 ## ▶️ Quick start (for a human)
 
 **1. Get this branch**
