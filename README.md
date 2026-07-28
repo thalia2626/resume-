@@ -1,113 +1,128 @@
-<div align="center">
+# 🎯 CSCO Interview Gauntlet — start here
 
-# ✨ THALIA SALGUERO ✨
+**You are on the `exam-prep` branch.** This branch is an offline practice game:
+**300 Chief Supply Chain Officer interview questions** turned into a 19-stage
+multiple-choice gauntlet. Clear each stage to unlock the next; get an answer right
+and it turns green with an explanation, get it wrong and it turns red
+("Incorrect, try again"). Finish all 19 stages to win.
 
-### Chief Supply Chain Officer
-**End-to-End Supply Chain · Procurement · Logistics · Federal-Contracting Key Personnel**
-
-<br>
-
-![Experience](https://img.shields.io/badge/Experience-10%2B%20Years-00315C?style=for-the-badge)
-![Role](https://img.shields.io/badge/Role-Chief%20Supply%20Chain%20Officer-1F6FEB?style=for-the-badge)
-![NAICS](https://img.shields.io/badge/NAICS-541614-2EA043?style=for-the-badge)
-![Bilingual](https://img.shields.io/badge/Bilingual-English%20%2F%20Spanish-8957E5?style=for-the-badge)
-
-[![Email](https://img.shields.io/badge/Email-thaliasalguero77@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:thaliasalguero77@gmail.com)
-[![Phone](https://img.shields.io/badge/Call-(240)%20556--8581-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+12405568581)
-![Location](https://img.shields.io/badge/Germantown,%20MD%2020876-informational?style=for-the-badge&logo=googlemaps&logoColor=white)
-
-<br>
-
-### 🌐 Live page — **share this link publicly:**
-
-## 👉 https://thalia2626.github.io/resume-/
-
-[![View Live Site](https://img.shields.io/badge/View%20Live%20Site-thalia2626.github.io%2Fresume--%2F-00315C?style=for-the-badge&logo=githubpages&logoColor=white)](https://thalia2626.github.io/resume-/)
-
-</div>
+> This is a branch of Thalia Salguero's résumé repo. The public résumé lives on the
+> `master` branch at **https://thalia2626.github.io/resume-/** and is **not** affected
+> by anything here. The game lives in the **`game_supply_chain/`** folder.
 
 ---
 
-> ### 💡 Ten years running the whole chain — plan, source, make, deliver, returns.
-> A supply chain leader who **grew from the floor up**: one year as an intern, then
-> nine years as **Chief Supply Chain Officer** owning P&L, sourcing, logistics,
-> planning, risk, and quality end to end. Experience-first, results-driven, bilingual,
-> and federal-contracting ready.
+## ▶️ How to start the game (2 steps)
 
----
+You run this on **your own computer** — it opens a small local web page you play in
+your browser. Nothing is installed and nothing goes online.
 
-## 🚀 Highlights
+### Step 1 — get this branch
 
-| | |
-|---|---|
-| 🏢 **10 years at Albright Laboratories LLC** | Intern → **Chief Supply Chain Officer** |
-| 💰 **P&L & Budget Ownership** | Cost reduction, TCO, margin & working-capital gains |
-| 🤝 **Strategic Sourcing & Vendor Negotiation** | Supplier scorecards, contracts, procurement compliance |
-| 🚚 **Logistics & Distribution** | Freight, 3PL/4PL, OTIF delivery, network optimization |
-| 📊 **Planning & Analytics** | S&OP, demand planning, inventory optimization, ERP & KPIs |
-| 🛡️ **Risk & Quality** | Business continuity, supplier risk, ISO 9001, FAR/DFARS |
-| 🇺🇸 **Federal Contracting** | Key Personnel · NAICS 541614 · SAM.gov ready |
-| 🗣️ **Bilingual** | Fully fluent in English & Spanish |
-
----
-
-## 🧩 Core Supply Chain Competencies
-
-`Strategic Sourcing` · `Vendor / Supplier Management` · `Contract Negotiation` ·
-`P&L / Budget Ownership` · `Cost Reduction / TCO` · `Logistics & Distribution` ·
-`Inventory Optimization` · `Demand Planning / S&OP` · `Quality Management (ISO 9001)` ·
-`Supply Chain Risk & Resilience` · `ERP Systems (SAP / Oracle)` · `KPI & Dashboard Governance` ·
-`Federal Contracting / NAICS 541614` · `Cross-Functional Leadership`
-
----
-
-## 🛠️ Skills by Domain
-
-| Domain | Skills |
-|---|---|
-| **Purchasing & Procurement** | PO processing · requisitions · three-way match · RFQ / RFP · vendor onboarding · contract compliance |
-| **Inventory Control** | cycle counting · accuracy · safety stock · reorder points · FIFO/LIFO · WMS · lot tracking |
-| **Buying & Sourcing** | strategic sourcing · TCO · spend analysis · SRM · supplier scorecards · category management |
-| **Logistics & Transportation** | freight · carriers · route/load planning · 3PL/4PL · Incoterms · TMS · OTIF · reverse logistics |
-| **Analytics & Systems** | data analytics · KPI dashboards · forecasting · SQL · Power BI · Tableau · Excel · SAP / Oracle |
-| **Demand & Supply Planning** | statistical forecasting · S&OP/S&OE · CPFR · MAPE · replenishment · Kinaxis / o9 / Blue Yonder |
-| **Quality & Compliance** | QMS · ISO 9001 · CAPA · SPC · FMEA · root cause · regulatory compliance · SOPs |
-
----
-
-## 📈 Career Journey
-
-```
-2016 ── Supply Chain Intern ─────────────── Albright Laboratories LLC
-  │        (learned the chain from the floor up)
-  ▼
-2017 ── Chief Supply Chain Officer ───────── Albright Laboratories LLC  ★ 9 years, present
-  │        end-to-end supply chain · P&L · sourcing · logistics · planning · risk · quality
-  │
-  └── Concurrent (second job): Property Management — Community Coordinator &
-      Leasing Consultant across four Maryland communities (2021–present)
+```bash
+git clone https://github.com/thalia2626/resume-.git
+cd resume-
+git checkout exam-prep
 ```
 
+*(Already have the repo? Just: `git fetch origin exam-prep && git checkout exam-prep && git pull`)*
+
+### Step 2 — run one command
+
+| Your computer | Command |
+|---|---|
+| **macOS / Linux** | `cd game_supply_chain && ./play.sh` |
+| **Windows** | open the `game_supply_chain` folder and double-click **`play.bat`** |
+
+A small local address will appear and your browser opens to it automatically:
+
+## 👉 http://localhost:8000/index.html
+
+That's the game. **Play right there in the browser.** When you're done, press
+**Ctrl + C** in the terminal window to stop it.
+
+> No Python/Node/PHP? The launcher will tell you to install **Python 3**
+> (<https://www.python.org/downloads/> — on Windows, tick *"Add Python to PATH"*),
+> then run the command again.
+
 ---
 
-## 🎓 Education
+## 🤖 Running this with Claude? Read this first
 
-**General Studies** — Montgomery College, Germantown, MD
-*Experience-first: qualifies on 10 years of progressive supply-chain leadership (no degree required for the role).*
+**This must be done with _Claude Code_ (the terminal / CLI app) — _not_ the web
+app at claude.ai.**
+
+Starting this game requires actions the web chat cannot do:
+
+- run shell commands (`git checkout`, start a local web server),
+- serve files from this folder over `http://localhost`, and
+- open a browser tab to that local address.
+
+Only **Claude Code running in a terminal on the user's machine** can do those. If you
+are the web-based Claude, you cannot start this game — tell the user to open **Claude
+Code** in a terminal (or run the two steps above themselves).
+
+### Exact steps for Claude Code (deterministic — do not guess)
+
+```bash
+# 1. Be on the exam-prep branch (clone first if the repo isn't present).
+git fetch origin exam-prep
+git checkout exam-prep
+git pull --ff-only origin exam-prep
+
+# 2. Serve the game folder and open it. Prefer whatever runtime exists.
+cd game_supply_chain
+./play.sh            # macOS/Linux  (Windows: run  play.bat)
+```
+
+`play.sh` / `play.bat` start a static server rooted at `game_supply_chain/` and open
+the default browser to `http://localhost:8000/index.html`. Success = the browser
+shows the **Stage Map** (19 stages, Stage 1 unlocked, the rest locked).
+
+To verify headlessly instead of opening a browser: after the server is up,
+`GET http://localhost:8000/index.html` and `GET http://localhost:8000/questions.js`
+should both return `200`. Runtime state is exposed on `window.__GAUNTLET__`.
+
+> The game must be served over **http** (the launcher does this). Opening
+> `index.html` as a `file://` path will not load the question bank in some browsers.
 
 ---
 
-## 📄 Résumé
+## 🎮 How it plays
 
-📥 **[Download the full résumé →](Thalia-Salguero-Resume.docx)** *(Microsoft Word)*
-
-<div align="center">
+- **19 stages**, one per interview domain, played in order. A stage unlocks only after
+  you clear the one before it — the final stage is reachable only after all the rest.
+- **One correct answer per question.**
+  - ✅ **Correct** → green + a pop-up explaining *why* it's the strong answer → next question.
+  - ❌ **Wrong** → red + *"Incorrect, try again"* (no explanation) → pick again.
+- **Finish all 19 stages** to unlock the closing message.
+- **Progress is saved** in your browser, so you can stop and come back. **Reset** starts over.
 
 ---
 
-**Thalia Salguero** · Chief Supply Chain Officer
-📧 [thaliasalguero77@gmail.com](mailto:thaliasalguero77@gmail.com) · 📱 (240) 556-8581 · 📍 Germantown, MD
+## 📁 What's in `game_supply_chain/`
 
-*Bilingual (English / Spanish) · Federal-Contracting Key Personnel · NAICS 541614*
+| File | Purpose |
+|---|---|
+| `index.html` | The game (engine + UI). |
+| `questions.js` | 300 multiple-choice questions with explanations, across 19 stages. |
+| `play.sh` / `play.bat` | One-command launchers (macOS/Linux and Windows). |
+| `serve.js` | Tiny Node fallback server (used only if Python/PHP aren't available). |
+| `interview.txt` | The original 300-question source bank. |
+| `tests/test_bank.mjs` | Test suite for the question data + stage logic (`node tests/test_bank.mjs`). |
+| `prd.json` | Product requirements for the build. |
 
-</div>
+---
+
+## 🔧 Troubleshooting
+
+- **"No runtime found to serve files"** → install Python 3 and re-run the launcher.
+- **Port 8000 busy** → `PORT=8080 ./play.sh` (macOS/Linux), or edit the `PORT` line in `play.bat` (Windows).
+- **Browser didn't open** → open the URL the launcher printed (`http://localhost:<port>/index.html`).
+- **Blank stage map / "question bank failed to load"** → you opened it as `file://`; use the launcher so it's served over `http`.
+
+---
+
+*Built for Thalia Salguero — Chief Supply Chain Officer interview preparation.
+Bilingual (English / Spanish) · Federal-contracting ready · NAICS 541614.
+Public résumé (unaffected by this branch): https://thalia2626.github.io/resume-/*
